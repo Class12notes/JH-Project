@@ -1,0 +1,2 @@
+need to make fix error in review section only diplaying party candidate not dispalying party logo but the divs are alrady crated (its working some times and somtimes its not working)
+tyo top ko logo chai 2nd page bata hataune parne cha 

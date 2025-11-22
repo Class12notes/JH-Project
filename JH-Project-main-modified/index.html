@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital Voting App</title>
+    <meta name="description" content="Secure Digital Voting Application" />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+        <!-- Screen 1: Language Selection -->
+        <section id="screen-language" class="screen active">
+            <div class="status-bar">
+                <span>9:30</span>
+                <div class="status-icons">
+                    <i data-lucide="wifi"></i>
+                    <i data-lucide="signal"></i>
+                    <i data-lucide="battery-full"></i>
+                </div>
+            </div>
+            
+            <div class="content-padding">
+                <h1 class="title-large">Select the language you prefer</h1>
+                
+                <div class="language-grid">
+                    <button class="lang-btn selected">English</button>
+                    <button class="lang-btn">NEPALI (नेपाली)</button>
+                    <!-- <button class="lang-btn">Telugu (తెలుగు)</button> -->
+                    <!-- <button class="lang-btn">Marathi (मराठी)</button>
+                    <button class="lang-btn">Tamil (தமிழ்)</button>
+                    <button class="lang-btn">Gujarati (ગુજરાતી)</button>
+                    <button class="lang-btn">Kannada (ಕನ್ನಡ)</button>
+                    <button class="lang-btn">Malayalam (മലയാളം)</button> -->
+                </div>
+            </div>
+
+            <div class="bottom-action">
+                <button class="btn-primary" onclick="navigateTo('screen-welcome')">Apply</button>
+            </div>
+        </section>
+
+        <!-- Screen 2: Welcome/Landing -->
+        <section id="screen-welcome" class="screen">
+            <div class="status-bar">
+                <span>9:30</span>
+                <div class="status-icons">
+                    <i data-lucide="wifi"></i>
+                    <i data-lucide="signal"></i>
+                    <i data-lucide="battery-full"></i>
+                </div>
+            </div>
+
+            <div class="hero-image-container">
+                <img src="https://english.nepalnews.com/wp-content/uploads/2025/09/election.jpg" alt="Voting Illustration" class="hero-img">
+                <div class="hero-overlay"></div>
+            </div>
+
+            <div class="logo-container">
+                <!-- Simplified Logo Representation -->
+                <div class="app-logo">
+                    <img src="https://pbs.twimg.com/profile_images/1516702143352545282/loxBJMqR.jpg" alt="", class="app-logo">
+                </div>
+            </div>
+
+            <div class="welcome-actions">
+                <button class="btn-primary" onclick="navigateTo('screen-register')">Register Now</button>
+                <button class="btn-secondary" onclick="navigateTo('screen-signin')">Sign in</button>
+            </div>
+        </section>
+
+        <div class="logo-container">
+                <!-- Simplified Logo Representation -->
+                <div class="app-logo-top">
+                    <img src="https://pbs.twimg.com/profile_images/1516702143352545282/loxBJMqR.jpg" alt="", class="app-logo-top">
+                </div>
+            </div>
+
+        <!-- Screen 3: Register -->
+        <section id="screen-register" class="screen">
+            <div class="status-bar"><span>9:30</span><div class="status-icons"><i data-lucide="wifi"></i><i data-lucide="signal"></i><i data-lucide="battery-full"></i></div></div>
+            
+            <div class="header-simple">
+                <h2>Register Now!</h2>
+            </div>
+
+            <div class="form-container">
+                <div class="input-group">
+                    <label>Select the ID</label>
+                    <div class="input-wrapper">
+                        <input type="text" placeholder="Select ID Type" readonly value="National Identity card">
+                        <i data-lucide="chevron-down" class="input-icon"></i>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>ID No</label>
+                    <div class="input-wrapper">
+                        <input type="text" placeholder="Enter ID Number">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Name</label>
+                    <div class="input-wrapper">
+                        <input type="text" placeholder="Enter Full Name">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Date of Birth</label>
+                    <div class="input-wrapper">
+                        <input type="text" placeholder="DD/MM/YYYY">
+                        <i data-lucide="calendar" class="input-icon"></i>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Phone No</label>
+                    <div class="input-wrapper">
+                        <input type="tel" placeholder="Enter Phone Number">
+                    </div>
+                </div>
+                
+                <p class="note-text"><span class="red">*</span> Note: Please provide the phone number linked to your National Identity Card</p>
+                
+                <button class="btn-primary" onclick="showModal('modal-biometric')">Verify</button>
+                
+                <div class="scan-option">
+                    <span>Scan the ID</span>
+                    <div class="scan-icon-box">
+                        <img src="https://uxwing.com/wp-content/themes/uxwing/download/e-commerce-currency-shopping/qr-code-scan-icon.png" alt="error", class="party-circle">
+                        <i data-lucide="scan-line"></i>
+                    </div>
+                </div>
+
+                <p class="link-text" onclick="navigateTo('screen-signin')">Already Registered? <br> Sign in</p>
+            </div>
+        </section>
+
+        <!-- Screen 5: Sign In -->
+        <section id="screen-signin" class="screen">
+            <div class="status-bar"><span>9:30</span><div class="status-icons"><i data-lucide="wifi"></i><i data-lucide="signal"></i><i data-lucide="battery-full"></i></div></div>
+            
+            <div class="header-simple">
+                <h2>Welcome Back!</h2>
+                <p class="subtitle">Use fingerprint or face capture to enter registered account</p>
+            </div>
+            
+            <div class="biometric-trigger" onclick="showModal('modal-biometric')">
+                <i data-lucide="camera" size="48"></i>
+            </div>
+
+            <div class="form-container mt-4">
+                 <p class="divider-text">Register with another account</p>
+                <div class="input-group">
+                    <label>Select the ID</label>
+                    <div class="input-wrapper">
+                        <input type="text" placeholder="Select ID Type" readonly value="National Identity card">
+                        <i data-lucide="chevron-down" class="input-icon"></i>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>ID No</label>
+                    <div class="input-wrapper">
+                        <input type="text" placeholder="Enter ID Number">
+                    </div>
+                </div>
+                 <div class="input-group">
+                    <label>Phone No</label>
+                    <div class="input-wrapper">
+                        <input type="tel" placeholder="Enter Phone Number">
+                    </div>
+                </div>
+                 <p class="note-text"><span class="red">*</span> Note: Please provide the phone number linked to your National Identity Card</p>
+
+                <button class="btn-primary" onclick="navigateTo('screen-otp')">Submit</button>
+                 <p class="link-text" onclick="navigateTo('screen-register')">New User? <br> Create an Account</p>
+            </div>
+        </section>
+
+        <!-- Screen 6: OTP -->
+        <section id="screen-otp" class="screen">
+            <div class="status-bar"><span>9:30</span><div class="status-icons"><i data-lucide="wifi"></i><i data-lucide="signal"></i><i data-lucide="battery-full"></i></div></div>
+            
+            <div class="otp-container">
+                <h2>Enter The OTP</h2>
+                <div class="otp-inputs">
+                    <input type="text" maxlength="1" class="otp-box">
+                    <input type="text" maxlength="1" class="otp-box">
+                    <input type="text" maxlength="1" class="otp-box">
+                    <input type="text" maxlength="1" class="otp-box">
+                    <input type="text" maxlength="1" class="otp-box">
+                    <input type="text" maxlength="1" class="otp-box">
+                </div>
+                <button class="btn-primary mt-large" onclick="navigateTo('screen-home')">Submit</button>
+            </div>
+            
+            <!-- Mock Keyboard for visual fidelity -->
+            <div class="mock-keyboard">
+                <div class="key-row"><div class="key">1</div><div class="key">2</div><div class="key">3</div></div>
+                <div class="key-row"><div class="key">4</div><div class="key">5</div><div class="key">6</div></div>
+                <div class="key-row"><div class="key">7</div><div class="key">8</div><div class="key">9</div></div>
+                <div class="key-row"><div class="key special">,</div><div class="key">0</div><div class="key special"><i data-lucide="delete"></i></div></div>
+            </div>
+        </section>
+
+        <!-- Screen 7: Home -->
+        <section id="screen-home" class="screen">
+            <div class="status-bar"><span>9:30</span><div class="status-icons"><i data-lucide="wifi"></i><i data-lucide="signal"></i><i data-lucide="battery-full"></i></div></div>
+            
+            <div class="home-header">
+                <div class="search-bar">
+                    <i data-lucide="search"></i>
+                    <input type="text" placeholder="Search Party/candidates">
+                    <div class="profile-icon"><i data-lucide="user"></i></div>
+                </div>
+            </div>
+
+            <div class="home-content">
+                <h3 class="section-title">Election Countdown</h3>
+                <div class="countdown-card">
+                    <div class="card-bg-gradient"></div>
+                    <div class="countdown-info">
+                        <h4>Assembly Election</h4>
+                        <p class="highlight-red">You have 3 days left to vote. Don't miss your chance!</p>
+                        <p class="sub-info">General Election to legislative assembly of Tamil Nadu 2024</p>
+                        <div class="timer-row">
+                            <div class="time-unit"><span>03</span><small>days</small></div>
+                            <div class="time-unit"><span>02</span><small>hours</small></div>
+                            <div class="time-unit"><span>38</span><small>mins</small></div>
+                            <div class="time-unit"><span>12</span><small>sec</small></div>
+                        </div>
+                         <button class="btn-small-primary" onclick="navigateTo('screen-select-candidate')">Vote Now</button>
+                    </div>
+                </div>
+
+                <div class="section-header">
+                    <h3 class="section-title">Parties & Candidates</h3>
+                    <a href="#" class="see-all">See All <i data-lucide="chevron-right"></i></a>
+                </div>
+                
+                <div class="parties-row">
+                    <div class="party-circle"><img src="candindate.png" alt="BJP"></div>
+                     <div class="party-circle"><img src="candindate.png" alt="INC"></div>
+                      <div class="party-circle"><img src="candindate.png" alt="BSP"></div>
+                       <div class="party-circle"><img src="candindate.png" alt="CPI"></div>
+                </div>
+
+                <h3 class="section-title mt-4">Things to know</h3>
+                <div class="info-cards-row">
+                    <div class="info-card gradient-1">Top Manifesto Highlights</div>
+                    <div class="info-card gradient-1">FAQs & Voter Education</div>
+                    <div class="info-card gradient-1">Find near by polling station</div>
+                </div>
+            </div>
+
+            <div class="bottom-nav">
+                <div class="nav-item active">
+                    <i data-lucide="home"></i>
+                    <span>Home</span>
+                </div>
+                <div class="nav-item">
+                    <i data-lucide="vote"></i>
+                    <span>Election</span>
+                </div>
+                <div class="nav-item">
+                    <i data-lucide="history"></i>
+                    <span>Poll History</span>
+                </div>
+                <div class="nav-item">
+                    <i data-lucide="user"></i>
+                    <span>Profile</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screen 8: Select Candidate -->
+        <section id="screen-select-candidate" class="screen">
+            <div class="status-bar"><span>9:30</span><div class="status-icons"><i data-lucide="wifi"></i><i data-lucide="signal"></i><i data-lucide="battery-full"></i></div></div>
+            
+            <div class="home-header">
+                <div class="search-bar">
+                    <i data-lucide="arrow-left" onclick="navigateTo('screen-home')"></i>
+                    <input type="text" placeholder="Search Party/candidates">
+                    <div class="profile-icon"><i data-lucide="user"></i></div>
+                </div>
+            </div>
+
+            <div class="content-padding pb-nav">
+                <h3 class="section-title">Select the Party or Candidate you want to vote</h3>
+                <button class="btn-primary mb-4" onclick="navigateTo('screen-candidate-profile')">Next</button>
+                
+                <h4 class="section-title">Listing of Parties & Candidates</h4>
+                
+                <div class="candidate-list">
+                    <!-- Candidate Item -->
+                    <div class="candidate-card selected-candidate">
+                        <div class="party-logo-small"><img src="party_logo.png" alt="Party"></div>
+                        <div class="candidate-info">
+                            <h5><strong>Party name</strong></h5>
+                            <p><strong>Candidate Name</strong></p>
+                        </div>
+                        <div class="candidate-img"><img src="candindate.png"></div>
+                    </div>
+                    
+                     <div class="candidate-card">
+                        <div class="party-logo-small"><img src="party_logo.png" alt="Party"></div>
+                        <div class="candidate-info">
+                            <h5><strong>Party name</strong></h5>
+                            <p><strong>Candidate Name</strong></p>
+                        </div>
+                        <div class="candidate-img"><img src="candindate.png"></div>
+                    </div>
+
+                     <div class="candidate-card">
+                        <div class="party-logo-small"><img src="party_logo.png" alt="Party"></div>
+                        <div class="candidate-info">
+                            <h5><strong>Party name</strong></h5>
+                            <p><strong>Candidate Name</strong></p>
+                        </div>
+                        <div class="candidate-img"><img src="candindate.png"></div>
+                    </div>
+                </div>
+            </div>
+             <div class="bottom-nav">
+                <div class="nav-item">
+                    <i data-lucide="home"></i>
+                    <span>Home</span>
+                </div>
+                <div class="nav-item active">
+                    <i data-lucide="vote"></i>
+                    <span>Election</span>
+                </div>
+                <div class="nav-item">
+                    <i data-lucide="history"></i>
+                    <span>Poll History</span>
+                </div>
+                <div class="nav-item">
+                    <i data-lucide="user"></i>
+                    <span>Profile</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screen 9: Candidate Profile -->
+        <section id="screen-candidate-profile" class="screen">
+            <div class="status-bar"><span>9:30</span><div class="status-icons"><i data-lucide="wifi"></i><i data-lucide="signal"></i><i data-lucide="battery-full"></i></div></div>
+            
+            <div class="profile-hero">
+                <img src="https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/8095/3c3f/118d9611dea91c363c13cedd7a44ae3d?Expires=1764547200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=n2fDCbRxSb707JW-UlIfFE86~p16R9bjpzPT7JIn4qHPHydk4mAde2gGtOrsbw-1A7P1bFOWQa9ETjnhirxr4ooKt687HM1G9LXqAGo0f0142gP5Dx1N59cccYdFqeX5tjYt0EKBRggdUgL3lpEFOTSV9JiBsCTW9Pqr5sMyPKwzwGaOi0gCk~83UaKdFhmA1eVTBTJJfeCx1dMnk89Tyzh-2IF8Qam6a0FwCatVLMhrFtLAFyqhwWW9QJOWICAU4TRDzy01NCczDMjkpDLEMMJpOaMYKGcby-uRNoLxCFPAS8Zm2M4mpRGcx~cna86mon8u0cMMZtzP5Fv8vX9SAA__" alt="Parliament" class="profile-bg">
+                <div class="profile-avatar-container">
+                    <img src="candindate.png" alt="Candidate" class="profile-avatar">
+                    <div class="profile-party-badge"><img src="party_logo.png" alt="Logo"></div>
+                </div>
+            </div>
+
+            <div class="content-padding pb-nav">
+                <div class="profile-actions">
+                    <button class="btn-primary" onclick="showModal('modal-confirm-vote')">Vote Now</button>
+                    <button class="btn-secondary">Campaign Affidavits</button>
+                </div>
+
+                <div class="profile-details">
+                    <h4>Biography</h4>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad explicabo tempora dolores nihil nulla natus, expedita mollitia dolore architecto molestias porro recusandae veniam iusto qui, quibusdam soluta perspiciatis eligendi quo!.</p>
+                    
+                    <h4>Political Achievements</h4>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique id, a molestias ipsa ab accusamus iusto qui adipisci ipsam nulla. Sed aliquam, voluptatibus vero harum veritatis error blanditiis suscipit sapiente?</p>
+                </div>
+            </div>
+             <div class="bottom-nav">
+                <div class="nav-item">
+                    <i data-lucide="home"></i>
+                    <span>Home</span>
+                </div>
+                <div class="nav-item active">
+                    <i data-lucide="vote"></i>
+                    <span>Election</span>
+                </div>
+                <div class="nav-item">
+                    <i data-lucide="history"></i>
+                    <span>Poll History</span>
+                </div>
+                <div class="nav-item">
+                    <i data-lucide="user"></i>
+                    <span>Profile</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Screen 10: Verification 1 -->
+        <section id="screen-verification-1" class="screen">
+            <div class="status-bar"><span>9:30</span><div class="status-icons"><i data-lucide="wifi"></i><i data-lucide="signal"></i><i data-lucide="battery-full"></i></div></div>
+            
+            <div class="header-simple">
+                <h2>Verification</h2>
+            </div>
+
+            <div class="form-container">
+                <div class="input-group">
+                    <label>National Identity Card</label>
+                    <div class="input-wrapper">
+                        <input type="text" value="9877 5646 6879 80" readonly>
+                    </div>
+                </div>
+                 <div class="input-group">
+                    <label>Name</label>
+                    <div class="input-wrapper">
+                        <input type="text" value="Kumar" readonly>
+                    </div>
+                </div>
+                 <div class="input-group">
+                    <label>Date of Birth</label>
+                    <div class="input-wrapper">
+                        <input type="text" value="12 12 1998" readonly>
+                    </div>
+                </div>
+                 <div class="input-group">
+                    <label>Phone No</label>
+                    <div class="input-wrapper">
+                        <input type="text" value="9879898998" readonly>
+                    </div>
+                </div>
+
+                <div class="review-section">
+                    <label>Scanned ID</label>
+                    <div class="scanned-img-box">
+                        <img src="https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/8fc6/49bd/d716c983af8a8cf355c9bed1945b0e2f?Expires=1764547200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=KqzeXSh5yJQVnoWNYN6WPrN1-8E~6ydhmmn2Hjdvodil-lYGysFxGYS~AnpVIQvZbE6slom0CH6PkHLY84ZBZ7q84VRGsouGkq8WRozt0jUkp4j57o83GSOhZ8BIrjDAxqyZDJs77ohUkiAx4gvm02I8xE2CF69DQ4Y~Nb61xhpTByJvun1yB4EsWnzXd10ZhokVJ~HgK3hw0Af~3MswhkciPwNHjaDB7VXhZmMcqdBZdz6-3p1NLyDigKH2dl4EPpoGRam4lw23Ls73g-jyeZqTRjWSL3YOa05OLj-PiJ60HAbs~RzahFO-7edjO2-ZJhnX5B16vpDvQBqX2zz3bA__" alt="ID">
+                    </div>
+                </div>
+                 <div class="review-section">
+                    <label>Chosen Party & Candidate</label>
+                    <div class="chosen-candidate-box">
+                        <img src="candindate.png" alt="Party-candidate">
+                    </div>
+                </div>
+
+                <button class="btn-primary" onclick="showModal('modal-verification-bio')">Verification</button>
+                <p class="text-center text-muted mt-2 small">Please do the mandate verification to continue Voting</p>
+            </div>
+        </section>
+
+        <!-- Screen 12: Success Verified -->
+        <section id="screen-success-verify" class="screen">
+             <div class="status-bar"><span>9:30</span><div class="status-icons"><i data-lucide="wifi"></i><i data-lucide="signal"></i><i data-lucide="battery-full"></i></div></div>
+             
+             <div class="success-banner">
+                 <img src="https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/3260/3aa2/bb5a605bdf4f394aa9dbfdb440bdd68e?Expires=1764547200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=UHUOesQZBtkj1MQ8muYJlfE3cwSeYqEEDV50vHnjg7E04RGjd0tnbAB2lFl8bLBi5quU4YMBwpr8qYHYl7NTcvw0oztMCko0QV0HXUribPb6K9d3x6nt5dJAIO4yjiNnrDZwl9JOh~Mp4NF30xR2wWPRm-7ctYFLTZqbw5kyw3DhkV0KDRbhB5wzTJWkTTtjb1BHy0rTI8S0Su9SWPkb~S0xfbDdkZaYJAMm9g7AylBLMEqbsX20jcXk5MzMJFq1eILBiIsUjhq8tDdZBD0USvizOfVbc4LWu-xaM197nNtH~xnHOV0ytKH4uXkJdMp9G7cPWdznK0Fh0DQ6gTjsBw__" alt="User">
+                 <span>Successfully verified with picture</span>
+             </div>
+
+             <!-- Reusing form container from Verification 1 but readonly/disabled look -->
+             <div class="form-container">
+                <div class="input-group"><label>National I dentity Card</label><div class="input-wrapper"><input type="text" value="3684 8984 0943 0890" readonly></div></div>
+                <div class="input-group"><label>Name</label><div class="input-wrapper"><input type="text" value="Kumar" readonly></div></div>
+                <div class="input-group"><label>Date of Birth</label><div class="input-wrapper"><input type="text" value="12 12 1998" readonly></div></div>
+                <div class="input-group"><label>Phone No</label><div class="input-wrapper"><input type="text" value="9879898998" readonly></div></div>
+                
+                 <div class="review-section">
+                    <label>Scanned ID</label>
+                    <div class="scanned-img-box"><img src="https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://s3-alpha-sig.figma.com/img/8fc6/49bd/d716c983af8a8cf355c9bed1945b0e2f?Expires=1764547200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=KqzeXSh5yJQVnoWNYN6WPrN1-8E~6ydhmmn2Hjdvodil-lYGysFxGYS~AnpVIQvZbE6slom0CH6PkHLY84ZBZ7q84VRGsouGkq8WRozt0jUkp4j57o83GSOhZ8BIrjDAxqyZDJs77ohUkiAx4gvm02I8xE2CF69DQ4Y~Nb61xhpTByJvun1yB4EsWnzXd10ZhokVJ~HgK3hw0Af~3MswhkciPwNHjaDB7VXhZmMcqdBZdz6-3p1NLyDigKH2dl4EPpoGRam4lw23Ls73g-jyeZqTRjWSL3YOa05OLj-PiJ60HAbs~RzahFO-7edjO2-ZJhnX5B16vpDvQBqX2zz3bA__" alt="ID"></div>
+                </div>
+                 <!-- ...existing code... -->
+                <div class="review-section">
+                    <label>Chosen Party  Candidate</label> <!-- Note: Removed "&" because the party image was not showing need to add later if selected -->
+                    <div class="chosen-candidate-box"><img src="candindate.png" alt="Party-candidate"></div>
+                    <div class="chosen-row">
+                        <div class="chosen-candidate-box"><img src="candindate.png" alt="Candidate"></div>
+                        <div class="chosen-party-box"><img src="party_logo.png" alt="Party logo"></div>
+                    </div>
+                </div>
+<!-- ...existing code... -->
+
+                <button class="btn-primary" onclick="navigateTo('screen-final-success')">Vote Now</button>
+             </div>
+        </section>
+
+        <!-- Screen 13: Final Success -->
+        <section id="screen-final-success" class="screen bg-primary centered-content">
+             <div class="status-bar white-text"><div class="status-icons"><i data-lucide="wifi"></i><i data-lucide="signal"></i><i data-lucide="battery-full"></i></div></div>
+             <div class="success-circle">
+                <img src="https://cdn-icons-png.flaticon.com/512/148/148767.png" alt="", class="success-circle">
+                 <i data-lucide="check" size="64"></i>
+             </div>
+             <h2 class="text-white mt-4">Vote Submitted!</h2>
+             <button class="btn-white mt-large" onclick="navigateTo('screen-home')">Back to Home</button>
+        </section>
+
+
+        <!-- Modals -->
+        
+        <!-- Biometric Modal (Used in Register & Sign In) -->
+        <div id="modal-biometric" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span>  </span>
+                    <div class="toggle-switch">
+                        <div class="toggle-knob"></div>
+                    </div>
+                </div>
+                <div class="biometric-body">
+                    <p>Capture Your face</p>
+                    <div class="face-scan-area">
+                        <div class="face-circle">
+                            <img src="https://cdn.vectorstock.com/i/750p/64/39/face-id-recognition-icon-vector-31106439.avif" alt="face recgonisation ",class="face-circle-img">
+                        </div>
+                    </div>
+                    <div class="fingerprint-icon">
+                        <i data-lucide="fingerprint"></i>
+                    </div>
+                </div>
+                <button class="btn-primary full-width" onclick="closeModal('modal-biometric'); navigateTo(currentFlow === 'register' ? 'screen-signin' : 'screen-otp')">Submit</button>
+            </div>
+        </div>
+
+        <!-- Confirm Vote Modal -->
+        <div id="modal-confirm-vote" class="modal">
+            <div class="modal-content simple-modal">
+                <h3>Note</h3>
+                <p>Once you cast your vote for a candidate, you won't be able to change it or vote for another candidate.</p>
+                <div class="modal-actions">
+                    <button class="btn-text" onclick="closeModal('modal-confirm-vote')">Cancel</button>
+                    <button class="btn-text primary-text" onclick="closeModal('modal-confirm-vote'); navigateTo('screen-verification-1')">Confirm</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Verification Biometric Modal -->
+        <div id="modal-verification-bio" class="modal">
+             <div class="modal-content">
+                <div class="biometric-body">
+                    <p class="text-center">Verify your fingerprint</p>
+                    <div class="fingerprint-icon large">
+                        <img src="https://media.istockphoto.com/id/921664276/vector/mobile-application-for-fingerprint-recognition.jpg?s=612x612&w=0&k=20&c=LU0HlPkgdV-k3Y5AzJ6JjCKQrSk1sr3_VCHcGCntBTU=" alt="",class="fingerprint-icon large">
+                        <i data-lucide="fingerprint"></i>
+                    </div>
+                    <p class="text-center my-2">OR</p>
+                    <button class="btn-primary full-width" onclick="closeModal('modal-verification-bio'); navigateTo('screen-success-verify')">Capture your face</button>
+                    <p class="note-text mt-2"><span class="red">*</span> Note: Your vote should be submitted within 5 minutes of the verification</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
